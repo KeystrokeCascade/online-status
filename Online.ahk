@@ -347,13 +347,13 @@ RoundTripTimeList(AddressList,Timeout = 800)
     Return, Result
 }
 
-loop
+while True
 {
 	ping := RoundTripTime("1.1.1.1")
-	if (%ping%>-1)
-		MsgBox "Offline"
+	if (ping == -1)
+	{
+		MsgBox Offline
 		exit
-	sleep 100
+	}
+	sleep 1000
 }
-
-MsgBox "Help"
